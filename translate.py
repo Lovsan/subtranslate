@@ -9,8 +9,8 @@ import threading
 import pickle
 from mtranslate import translate
 
-os.environ["OPEN_API_KEY"] = "eKEM21kndC3PaxA4rJ5oT3BlbkFJkAU8gIv1BNRxS28KpBk4"
-os.environ["MICROSOFT_API_KEY"] = "47d43268ec134ee19187eae3d6ed8857"
+os.environ["OPEN_API_KEY"] = ""
+os.environ["MICROSOFT_API_KEY"] = ""
 
 # Configure logging
 logging.basicConfig(filename="translate.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -69,7 +69,7 @@ def translate_srt(filepath, target_lang, translation_service, source_lang, new_f
             elif translation_service == 'microsoft':
                 result = translate(sub.text, target_lang)
             elif translation_service == 'chatgpt':
-                result = ChatGptTranslator(source=source_lang, target=target_lang, api_key='eKEM21kndC3PaxA4rJ5oT3BlbkFJkAU8gIv1BNRxS28KpBk4').translate(sub.text)
+                result = ChatGptTranslator(source=source_lang, target=target_lang, api_key='').translate(sub.text)
             elif translation_service == 'pons':
                 result = PonsTranslator(source=source_lang, target=target_lang).translate(sub.text)
             else:
